@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GYM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swmark">Ocean Heart Water World is located in the south , west ofcentury Avenue，No. 69 Road, is the center of the new urbanarea of city, currently city is a large scale, functional indoorswimming fitness leisure venue.</string>
+    <string name="fit">There is a saying in China that xxxpeople eat for the dayxxx. I like eating food very much. Eating food is a kind of taste enjoyment for me, which makes my mood very pleasant. I always spend a lot of money on food. I like pasta, sausage, butter bread, pizza, etc. </string>
+    <string name="sport">It was Christmas Day yesterday. We had a Christmas party at school. Many friends ofmine came to the party. After we saidMerry Christmas, we began to sing Christmas songs.such as Edelweiss, andso on. Then we told some Christmas stories</string>
+    <string name="outcome"></string>
+    <string name="income"></string>
+
+    <string-array name="shopType">
+        <item></item>
+    </string-array>
+    <string-array name="numSp">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+</resources>

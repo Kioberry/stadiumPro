@@ -1,0 +1,99 @@
+package com.wwdw.easytimeapplication.adapters;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.wwdw.easytimeapplication.R;
+import com.wwdw.easytimeapplication.base.BaseApplion;
+import com.wwdw.easytimeapplication.bean.SelectTimeBean;
+import com.wwdw.easytimeapplication.uitls.SharedConfig;
+import com.wwdw.easytimeapplication.uitls.SharedUtil;
+import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class SelectTimeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    ArrayList<SelectTimeBean> list = new ArrayList<>();
+    Context mContext;
+    private final String userId;
+
+    public SelectTimeListAdapter(ArrayList<SelectTimeBean> mList, Context mContext) {
+        list.addAll(mList);
+        this.mContext = mContext;
+        userId = SharedUtil.create(BaseApplion.application).getString(SharedConfig.userName);
+    }
+
+    public void setList(ArrayList<SelectTimeBean> mList) {
+        this.list = mList;
+    }
+
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemViewHodler sectionViewHodler = null;
+        sectionViewHodler = new ItemViewHodler(LayoutInflater.from(mContext).inflate(R.layout.select_time_item_layout, parent, false), viewType);
+        return sectionViewHodler;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+        final SelectTimeBean itemBean = list.get(position);
+        ItemViewHodler itemViewHodler = (ItemViewHodler) holder;
+        itemViewHodler.timeTv.setText("$ "+itemBean.getMoney() + "");
+        if (itemBean.getState().equals("1")) {
+            itemViewHodler.timeTv.setBackground(mContext.getResources().getDrawable(R.drawable.btn_point_gray_v2));
+        }
+        if (itemBean.getState().equals("2")) {
+            itemViewHodler.timeTv.setBackground(mContext.getResources().getDrawable(R.drawable.btn_point_green_v2));
+        }
+
+        if (itemBean.getState().equals("3")) {
+            itemViewHodler.timeTv.setBackground(mContext.getResources().getDrawable(R.drawable.btn_point_red_v2));
+        }
+
+        itemViewHodler.lay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listeners != null) {
+                    listeners.itemBean(position, itemBean);
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ItemViewHodler extends RecyclerView.ViewHolder {
+
+        public TextView timeTv;
+        public LinearLayout lay;
+        public int viewType;
+
+        public ItemViewHodler(@NonNull View itemView, int viewType) {
+            super(itemView);
+            this.viewType = viewType;
+            lay = itemView.findViewById(R.id.lay);
+            timeTv = itemView.findViewById(R.id.timeTv);
+        }
+
+        public int getViewType() {
+            return viewType;
+        }
+    }
+
+    public interface OnItemClickListeners {
+        void itemBean(int pos, SelectTimeBean itemBean);
+    }
+
+    public OnItemClickListeners listeners;
+
+    public void setOnItemClickListeners(OnItemClickListeners listener) {
+        this.listeners = listener;
+    }
+}

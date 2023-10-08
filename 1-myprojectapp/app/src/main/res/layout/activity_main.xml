@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_function"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_function"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:button="@drawable/selected_detail"
+            android:drawableTop="@mipmap/detail1"
+            android:onClick="onclick"
+            android:text="明细"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btn_graphic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:button="@drawable/selected_graphic"
+            android:drawableTop="@mipmap/graphic1"
+            android:onClick="onclick"
+            android:text="图表"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btn_community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:button="@drawable/selected_community"
+            android:drawableTop="@mipmap/community1"
+            android:onClick="onclick"
+            android:text="社区"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btn_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:button="@drawable/selected_my"
+            android:drawableTop="@mipmap/my1"
+            android:onClick="onclick"
+            android:text="我的"
+            android:textSize="8dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
